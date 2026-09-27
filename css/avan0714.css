@@ -557,6 +557,15 @@ body {
     flex-direction: column;
 }
 
+.d-flex-row {
+    flex-direction: row;
+    ;
+}
+
+.d-flex-nowrap {
+    flex-wrap: nowrap;
+}
+
 .justify-content-between {
     justify-content: space-between
 }
@@ -750,6 +759,7 @@ body {
 
 .d-block {
     display: block;
+    width: 100%;
 }
 
 .d-inline-block {
@@ -888,7 +898,7 @@ body {
 .card {
     background: #fff;
     border-radius: var(--border-radius);
-    box-shadow: 10px 10px 30px rgb(192 192 192 / 50%);
+    box-shadow: 0px 2px 12px rgb(192 192 192 / 50%);
     border: 0.01rem solid var(--color-secondary);
     cursor: pointer;
     position: relative;
@@ -916,12 +926,13 @@ body {
 }
 
 .card-image-mini {
- max-width: 350px;
- max-height: 200px;
+    padding: 0.8rem;
+    max-width: 350px;
+    max-height: 200px;
 }
 
 .card-title {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: .09rem;
 }
@@ -1068,3 +1079,87 @@ body {
     height: 48px;
     border-radius: 50%;
 }
+
+.card-group {
+    position: relative;
+}
+
+.card-container {
+    grid-column-end: span 12;
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    gap: 0.42rem;
+}
+
+.card-container::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar in Chrome, Safari and Opera */
+}
+
+.control-left {
+    position: absolute;
+    color: #000000;
+    left: -23px;
+    top: 30%;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    border: 0.2rem solid rgb(6, 6, 6, .4);
+    background-color: rgb(255 255 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.control-left::before {
+    content: '<';
+}
+
+.control-left:hover {
+    border: 0.2rem solid rgb(6, 6, 6, .6);
+}
+
+.control-right {
+    position: absolute;
+    right: -23px;
+    top: 30%;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    border: 0.2rem solid rgb(6, 6, 6, .4);
+    background-color: rgb(255 255 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.control-right::before {
+    content: '>';
+}
+
+.control-right:hover {
+    border: 0.2rem solid rgb(6, 6, 6, .6);
+}
+
+.card {
+    /* ... */
+    scroll-snap-align: start;
+    /* Set the element focus position in scroll container */
+}
+
+/* .image-mini {
+    align-content: center;
+    border-bottom: 0.01rem solid var(--color-secondary);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.image-mini img {
+    max-width: 90%;
+    max-height: 90%;
+} */
